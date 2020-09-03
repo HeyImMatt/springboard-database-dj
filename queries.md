@@ -111,17 +111,70 @@ SELECT s.first_name, s.last_name, COUNT(*) AS movie_total
 
 11. The title of every movie along with the number of stars in
     that movie, in descending order by the number of stars.
+```
+SELECT m.title, COUNT(s.id) AS stars
+    FROM movies m
+    JOIN roles r
+    ON m.id = r.movie_id
+    JOIN stars s
+    ON r.star_id = s.id
+    GROUP BY m.title
+    ORDER BY stars DESC;
+```
 
 12. The first name, last name, and average runtime of the five
     stars whose movies have the longest average.
+```
+SELECT s.first_name, s.last_name, ROUND(AVG(m.runtime)) AS average_runtime
+    FROM movies m
+    JOIN roles r
+    ON m.id = r.movie_id
+    JOIN stars s
+    ON r.star_id = s.id
+    GROUP BY s.first_name, s.last_name
+    ORDER BY average_runtime DESC
+    LIMIT 5;
+```
 
 13. The first name, last name, and average runtime of the five
     stars whose movies have the longest average, among stars who have more than one movie in the database.
+```
+SELECT s.first_name, s.last_name, ROUND(AVG(m.runtime)) AS average_runtime
+    FROM movies m
+    JOIN roles r
+    ON m.id = r.movie_id
+    JOIN stars s
+    ON r.star_id = s.id
+    GROUP BY s.first_name, s.last_name
+    HAVING COUNT(m.id) > 1
+    ORDER BY average_runtime DESC
+    LIMIT 5;
+```
 
 14. The titles of all movies that don't feature any stars in our
     database.
+```
+SELECT title
+    FROM movies
+    WHERE id NOT IN(
+        SELECT m.id
+        FROM movies m
+        JOIN roles r
+        ON m.id = r.movie_id
+    );
+```
 
 15. The first and last names of all stars that don't appear in any movies in our database.
+```
+SELECT first_name, last_name
+    FROM stars
+    WHERE id NOT IN(
+        SELECT s.id
+        FROM stars s
+        JOIN roles r
+        ON s.id = r.star_id
+    );
+```
 
 16. The first names, last names, and titles corresponding to every
     role in the database, along with every movie title that doesn't have a star, and the first and last names of every star not in a movie.
