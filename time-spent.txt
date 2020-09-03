@@ -4,9 +4,9 @@ Start: 4pm 9/2/2020
 
 End:
 
-Total time: 
+Total time: 4.5 hours 
 Conceptual Questions: 1 hour
-Practice SQL Queries:
+Practice SQL Queries: 1.5 hours
 Database DJ Code: 2 hours
 
 Target time: 10-15 hours
