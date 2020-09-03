@@ -7,6 +7,6 @@ End:
 Total time: 
 Conceptual Questions: 1 hour
 Practice SQL Queries:
-Database DJ Code and Tests: 
+Database DJ Code: 2 hours
 
 Target time: 10-15 hours
