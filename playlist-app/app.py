@@ -59,6 +59,16 @@ def add_playlist():
 
     form = PlaylistForm()
 
+    if form.validate_on_submit():
+        name = form.name.data
+        description = form.description.data
+
+        playlist = Playlist(name=name, description=description)
+        db.session.add(playlist)
+        db.session.commit()
+
+        return redirect('/playlists')
+
     return render_template('new_playlist.html', form=form)
 
 
