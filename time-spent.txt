@@ -7,6 +7,6 @@ End:
 Total time: 
 Conceptual Questions: 1 hour
 Practice SQL Queries:
-Madlibs Code and Tests: 
+Database DJ Code and Tests: 
 
 Target time: 10-15 hours
