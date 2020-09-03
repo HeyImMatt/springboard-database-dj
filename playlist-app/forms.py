@@ -2,6 +2,7 @@
 
 from wtforms import SelectField, StringField, TextAreaField
 from flask_wtf import FlaskForm
+from wtforms.validators import InputRequired
 
 
 class PlaylistForm(FlaskForm):

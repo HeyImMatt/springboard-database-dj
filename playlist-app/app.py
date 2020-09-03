@@ -57,7 +57,9 @@ def add_playlist():
     - if valid: add playlist to SQLA and redirect to list-of-playlists
     """
 
-    # ADD THE NECESSARY CODE HERE FOR THIS ROUTE TO WORK
+    form = PlaylistForm()
+
+    return render_template('new_playlist.html', form=form)
 
 
 ##############################################################################
