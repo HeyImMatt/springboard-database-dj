@@ -47,8 +47,9 @@ def show_playlist(playlist_id):
     """Show detail on specific playlist."""
 
     playlist = Playlist.query.get_or_404(playlist_id)
+    songs = playlist.songs
 
-    return render_template('playlist.html', playlist=playlist)
+    return render_template('playlist.html', playlist=playlist, songs=songs)
 
 
 @app.route("/playlists/add", methods=["GET", "POST"])
@@ -138,7 +139,10 @@ def add_song_to_playlist(playlist_id):
 
     if form.validate_on_submit():
 
-        # ADD THE NECESSARY CODE HERE FOR THIS ROUTE TO WORK
+        song_id = form.song.data
+        playlist_song = PlaylistSong(playlist_id=playlist_id, song_id=song_id)
+        db.session.add(playlist_song)
+        db.session.commit()
 
         return redirect(f"/playlists/{playlist_id}")
 
