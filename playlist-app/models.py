@@ -13,6 +13,7 @@ class Playlist(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
+    assignments = db.relationship('Playlist', secondary='playlists_songs', backref='songs')
 
 
 class Song(db.Model):
