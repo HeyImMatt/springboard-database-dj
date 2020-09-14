@@ -174,3 +174,8 @@ SELECT first_name, last_name
 
 16. The first names, last names, and titles corresponding to every
     role in the database, along with every movie title that doesn't have a star, and the first and last names of every star not in a movie.
+  
+SELECT s.first_name, s.last_name, m.title
+      FROM stars s
+      FULL JOIN roles r ON r.star_id = s.id
+      FULL JOIN movies m on m.id = r.movie_id;
