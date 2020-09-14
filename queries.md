@@ -155,10 +155,8 @@ SELECT s.first_name, s.last_name, ROUND(AVG(m.runtime)) AS average_runtime
 SELECT title
     FROM movies
     WHERE id NOT IN(
-        SELECT m.id
-        FROM movies m
-        JOIN roles r
-        ON m.id = r.movie_id
+        SELECT movie_id
+        FROM roles
     );
 ```
 
