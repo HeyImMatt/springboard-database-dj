@@ -143,7 +143,7 @@ SELECT s.first_name, s.last_name, ROUND(AVG(m.runtime)) AS average_runtime
     ON m.id = r.movie_id
     JOIN stars s
     ON r.star_id = s.id
-    GROUP BY s.first_name, s.last_name
+    GROUP BY s.id, s.first_name, s.last_name
     HAVING COUNT(m.id) > 1
     ORDER BY average_runtime DESC
     LIMIT 5;
