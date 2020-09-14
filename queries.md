@@ -49,7 +49,6 @@ SELECT *
 SELECT rating, COUNT(*) AS total
     FROM movies 
     GROUP BY rating
-    ORDER BY rating;
 ```
 
 6.  A table with columns of `release_year` and `average_runtime`,
