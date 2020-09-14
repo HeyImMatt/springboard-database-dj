@@ -33,7 +33,7 @@ SELECT *
 ```
 SELECT title, release_year 
     FROM movies 
-    ORDER BY release_year;
+    ORDER BY release_year ASC;
 ```
     
 4.  All information on the 5 longest movies.
