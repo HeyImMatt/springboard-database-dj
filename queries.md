@@ -65,8 +65,7 @@ SELECT release_year, ROUND(AVG(runtime)) AS average_runtime
 ```
 SELECT title, name
     FROM movies 
-    JOIN studios
-    ON movies.studio_id = studios.id;
+    JOIN studios ON movies.studio_id = studios.id;
 ```
 
 8.  The star first name, star last name, and movie title for every
