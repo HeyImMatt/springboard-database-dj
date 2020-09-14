@@ -88,7 +88,7 @@ SELECT s.first_name, s.last_name
     JOIN stars s
     ON r.star_id = s.id
     WHERE m.rating = 'G'
-    GROUP BY s.first_name, s.last_name;
+    GROUP BY s.id, s.first_name, s.last_name;
 ```
 
 10. The first and last names of every star along with the number
